@@ -4,6 +4,7 @@ import { TableHeader, TableRow, TableHead, TableBody, TableCell, TableCaption, T
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { DeleteTodos,GetTodoById } from "@/utils/action";
+import CustomeBagde from "./customeBagde";
 
 export interface Data {
     id: string;
@@ -53,9 +54,7 @@ export default function TableCustome({ items,setTodo }: TableProps) {
       
           <TableCell className="font-bold">{item.title}</TableCell>
           <TableCell>{item.content}</TableCell>
-          <TableCell>{item.completed === true? <Badge className="bg-purple-500 hover:bg-purple-600" variant={"default"}  >Vrai</Badge>
-      :<Badge className="bg-gray-500">Faux</Badge>
-      }</TableCell>
+          <TableCell>{<CustomeBagde completed= {item.completed} />}</TableCell>
       <TableCell>
         <Button onClick={()=>onUpdate(item.id)} className="bg-yellow-500 mr-2">Modifier</Button>
         <Button onClick={()=>onDelete(item.id)} className="bg-red-500">Supprimer</Button>
@@ -68,3 +67,7 @@ export default function TableCustome({ items,setTodo }: TableProps) {
     </div>
   );
 }
+
+
+
+

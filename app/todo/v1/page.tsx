@@ -4,12 +4,12 @@ import { GetAllTodos } from "@/utils/action";
 import { Data as TodoType } from "@/components/customeTable";
 import Todo from "@/components/Todo";
 
-export default async function  Home (){
+export default async function  Page (){
   const todos = await GetAllTodos()
 
 return (
   <>
-  <div>Hello</div>
+  <Todo todo= {todos}/>
   </>
 )
 }
